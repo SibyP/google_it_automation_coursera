@@ -1,0 +1,28 @@
+#!/usr/bin/python3
+"""Description:
+The script deals with the manipulation of images using the imaging library PIL. 
+The images are being resized, rotated and converted to .jpeg format.
+The manipulated images are saved to an output directory.
+"""
+import os
+from PIL import Image
+
+src_dir = os.getcwd() + "/images" 
+#The file path for the source directory, where the images are stored.
+
+out_dir = "/opt/icons" 
+#The file path for the output directory, where the transformed images should be stored.
+
+for filename in os.listdir(src_dir):
+    src_path = src_dir + "/" + filename
+    out_path = out_dir + "/" + filename
+    if src_path[-4:] == "48dp":
+        try:
+            with Image.open(src_path) as im:
+                im = im.resize((128,128))
+                im = im.rotate(-90)
+                im = im.convert("RGB")
+                im.save(out_path,"JPEG")
+                im.close()
+        except OSError:
+             print("cannot convert", filename)
