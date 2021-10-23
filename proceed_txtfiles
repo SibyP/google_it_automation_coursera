@@ -1,0 +1,29 @@
+#! /usr/bin/env python3
+"""Description:
+The script deals with the process of text files with Python dictionaries and upload to running web service.
+The txt files are listed under /data/feedback directory, that contains the actual feedback to be displayed on the company's website.
+Create a dictionary by keeping title, name, date, and feedback as keys for the content value.
+Use the Python requests module to post the dictionary to the company's website.
+"""
+import os
+import requests
+ 
+directory = "/data/feedback/"
+#The file path for the source directory, where the .txt files are stored.
+
+url = "http://XXXXXX/feedback/"
+#The Qwiklab's "corpweb" IP Address.
+ 
+for file in os.listdir(directory):
+    titles = ["title","name","date","feedback"]
+    data = {}
+    lines = []
+    with open(directory+"/"+file,"r") as txtfile:
+        x = 0
+        for line in file:
+            data[titles[x]] = line.rstrip('\n')
+            x += 1
+    response = requests.post(url,json=data)
+    
+    if not response.status_code == 201:
+        print('Something went wrong')
