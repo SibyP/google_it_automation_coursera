@@ -30,5 +30,4 @@ def convert_images(src_dir, out_dir):
             except OSError:
                 print("cannot convert", filename)
 
-
 convert_images(src_dir=src_dir, out_dir=out_dir)
