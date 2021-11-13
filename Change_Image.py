@@ -5,6 +5,7 @@ The images are stored in a source directory and they should be saved in a manipu
 This code is part 1 of the final grand assessment.
 """
 
+
 #!/usr/bin/env python3
 
 import os
