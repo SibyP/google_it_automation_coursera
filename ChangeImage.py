@@ -1,5 +1,3 @@
-#Size: Change image resolution from 3000x2000 to 600x400 pixel
-#Format: Change image format from .TIFF to .JPEG
 """Description:
 The script deals with the manupulation of images using the imaging library PIL. 
 The images should be resized,and converted to .jpeg format.
